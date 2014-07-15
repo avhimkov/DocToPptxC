@@ -14,9 +14,7 @@ namespace DocToPptC
             
             OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 1, 0, 0);
 
-
-
-
+            
             /*заголовок TODO*/
 //            OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
 //            OfficeEx.Word = OfficeEx.ReadWordIp(5);
