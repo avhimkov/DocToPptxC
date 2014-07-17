@@ -27,18 +27,24 @@ namespace DocToPptC
             string zagE = OfficeEx.ReadWordIp(22);
             string zagF = OfficeEx.ReadWordIp(23);
 
-            OfficeEx.Word = zagA + " " + zagB + " " + zagC + " " + zagD + " " + zagE + " " + zagF;
 
+            string zagK = OfficeEx.ReadWordIp(27);
+            string zagX = OfficeEx.ReadWordIp(28);
+            string zagJ = OfficeEx.ReadWordIp(29);
+
+            OfficeEx.Word = zagA + " " + zagB + " " + zagC + " " + zagD + " " + zagE + " " + zagF;
             OfficeEx.Txt = OfficeEx.Word;
             OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 1, 0);
 
-//            string zagK = OfficeEx.ReadWordIp(27);
-//            string zagX = OfficeEx.ReadWordIp(28);
-//
-//            OfficeEx.Word = zagK + " " + zagX;
-//
-//            OfficeEx.Txt = OfficeEx.Word;
-//            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 2, 0);
+            OfficeEx.Word = zagK + "." + zagX + " " + zagJ;
+            OfficeEx.Txt = OfficeEx.Word;
+            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 2, 0);
+
+
+           
+            
+
+            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 2, 0);
 //            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 3, 0);
 
             
