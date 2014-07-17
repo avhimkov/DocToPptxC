@@ -10,16 +10,16 @@ namespace DocToPptC
         private static void Main(string[] args)
         {
            /*Вводная параграф*/
-//            OfficeEx.Word = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-//            OfficeEx.Txt = OfficeEx.Word;
-//            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 1, 0, 0);
+            OfficeEx.Word = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
+            
+            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 1, 0, 0);
 
             
             /*заголовок TODO*/
-            OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-            OfficeEx.Word = OfficeEx.ReadWordIp(53);
-            OfficeEx.Txt = OfficeEx.Word;
-            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 0, 0);
+//            OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
+//            OfficeEx.Word = OfficeEx.ReadWordIp(5);
+//            OfficeEx.Txt = "";
+//            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 1, 0, 0);
          
            /*температура*/
 //            OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
