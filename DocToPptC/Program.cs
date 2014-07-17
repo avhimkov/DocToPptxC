@@ -17,12 +17,32 @@ namespace DocToPptC
 
             
            /*заголовок*/
+            /*по параграфам 4-5 в заголовке*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-            OfficeEx.Word = OfficeEx.ReadWordIp(53);
+            
+            string zagA = OfficeEx.ReadWordIp(17);
+            string zagB = OfficeEx.ReadWordIp(18);
+            string zagC = OfficeEx.ReadWordIp(20);
+            string zagD = OfficeEx.ReadWordIp(21);
+            string zagE = OfficeEx.ReadWordIp(22);
+            string zagF = OfficeEx.ReadWordIp(23);
+
+            OfficeEx.Word = zagA + " " + zagB + " " + zagC + " " + zagD + " " + zagE + " " + zagF;
+
             OfficeEx.Txt = OfficeEx.Word;
-           /*по параграфам 4-5 в заголовке*/
             OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 1, 0);
-         
+
+//            string zagK = OfficeEx.ReadWordIp(27);
+//            string zagX = OfficeEx.ReadWordIp(28);
+//
+//            OfficeEx.Word = zagK + " " + zagX;
+//
+//            OfficeEx.Txt = OfficeEx.Word;
+//            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 2, 0);
+//            OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 3, 0);
+
+            
+
            /*температура*/
 //            OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
 //            OfficeEx.Word = OfficeEx.ReadWordIp(2);
