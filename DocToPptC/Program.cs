@@ -3,12 +3,14 @@ using P = DocumentFormat.OpenXml.Presentation;
 using ODD = DocumentFormat.OpenXml.Wordprocessing;
 using ODP = DocumentFormat.OpenXml.Drawing;
 
+
 namespace DocToPptC
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
+           
            /*Карта района ЧС*/
            /*Вводная параграф*/
             OfficeEx.Word = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
