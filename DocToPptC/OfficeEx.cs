@@ -88,10 +88,6 @@ namespace DocToPptC
                 Shape firstShape = firstSlide.CommonSlideData.ShapeTree.ChildElements.OfType<Shape>().ElementAt(indexshape);
                 ODP.Paragraph paraP = firstShape.TextBody.ChildElements.OfType<ODP.Paragraph>().ElementAt(indexpara);
                 ODP.Text t = paraP.ChildElements.OfType<ODP.Run>().ElementAt(indexrun).Text;
-//                if (paraP.InnerText != "")
-//                {
-//                    Txt = paraP.InnerText;
-//                }
                 t.Text = Txt;
                 prstDoc.PresentationPart.Presentation.Save();
             }
