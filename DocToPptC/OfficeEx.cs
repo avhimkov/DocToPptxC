@@ -13,9 +13,9 @@ namespace DocToPptC
 {
     public class OfficeEx
     {
-        public static string DocxFile = @"Doc.docx";
-        public static string PptxFile = @"Presentation1.pptx";
-        public static string ExcelFile1 = @"Presentation1.xlsx";
+        public static string DocxFile = @"D:\DocToPPTС\Doc.docx";
+        public static string PptxFile = @"D:\DocToPPTС\Presentation1.pptx";
+        public static string ExcelFile1 = @"D:\DocToPPTС\Presentation1.xlsx";
 //        public static string ExcelFile2 = @"Справка  СиС.xlsx";
         
         private static string _txt = "";
