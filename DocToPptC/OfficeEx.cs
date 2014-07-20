@@ -19,13 +19,7 @@ namespace DocToPptC
 //        public static string ExcelFile2 = @"Справка  СиС.xlsx";
         
         private static string _txt = "";
-        private static string _word = "";
 
-        public static string Word
-        {
-            get { return _word; }
-            set { _word = value; }
-        }
         public static string Txt
         {
             get { return _txt; }
