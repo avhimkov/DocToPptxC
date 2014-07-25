@@ -20,7 +20,7 @@ namespace DocToPptC
         
         private static string _txt = "";
 
-        public static string Txt
+     public static string Txt
         {
             get { return _txt; }
             set { _txt = value; }
@@ -32,6 +32,22 @@ namespace DocToPptC
             string[] words = Txt.Split(new[] { ' ', ',', ':', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries);
             string word = words[index];
             return word;
+        }
+
+        public static int SearchString(string findstring)
+        {
+            string[] strArray = Txt.Split(new[] { ' ', ',', ':', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries);
+            
+//            string findThisString = "JKL";
+            int strNumber;
+            int strIndex = 0;
+            for (strNumber = 0; strNumber < strArray.Length; strNumber++)
+            {
+                strIndex = strArray[strNumber].IndexOf(findstring);
+                if (strIndex >= 0)
+                    break;
+            }
+            return strIndex;
         }
 
        public static string ExcelGetVal(string filepatch, int indexWsp, int indexSheetD, int indexRow, int indexCell)
@@ -52,7 +68,7 @@ namespace DocToPptC
             }
             return Txt;
         }
-
+        
         public static void PptxGetTab(string filepatch, int indexSlide, int indexGraphicFrame, int indexRow, int indexCell, int indexRun)
         /*ставим указатель на место вставки текста в таблицу*/
         {
