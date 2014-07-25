@@ -21,6 +21,9 @@ namespace DocToPptC
             /*заголовок*/
             /*по параграфам 2-3 в заголовке*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
+            
+//            Console.WriteLine(OfficeEx.Txt.IndexOf("погибло", System.StringComparison.Ordinal));
+//            Console.ReadKey();
             /*первый параграф*/
             str.Add(OfficeEx.ReadWordIp(17));/*0*/
             str.Add(OfficeEx.ReadWordIp(18));/*1*/
@@ -33,7 +36,7 @@ namespace DocToPptC
             str.Add(OfficeEx.ReadWordIp(27));/*6*/
             str.Add(OfficeEx.ReadWordIp(28));/*7*/
             str.Add(OfficeEx.ReadWordIp(29));/*8*/
-            
+
             /*первый параграф вывод*/
             OfficeEx.Txt = str[0] + " " + str[1] + " " + str[2] + " " + str[3] + " " + str[4] + " " + str[5];
             OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 1, 0);
@@ -79,24 +82,24 @@ namespace DocToPptC
             str.Add(OfficeEx.ReadWordIp(57));/*15*/
             OfficeEx.Txt = str[15];
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 3, 3, 1, 0);
-//            Console.WriteLine(OfficeEx.Txt);
-//            Console.ReadKey();
+            Console.WriteLine(OfficeEx.Txt);
+            Console.ReadKey();
 
-           /*   /*От МЧС л/с, чел. TODO#1#
+              /*От МЧС л/с, чел. */
             OfficeEx.Txt = OfficeEx.ExcelGetVal(OfficeEx.ExcelFile1, 0, 0, 8, 2);
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 4, 3, 1, 0);
 
-            /*От МЧС тех.ед#1#
+            /*От МЧС тех.ед*/
             OfficeEx.Txt = OfficeEx.ExcelGetVal(OfficeEx.ExcelFile1, 0, 0, 8, 3);
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 4, 3, 2, 0);
 
-            /*Всего л/с, чел.#1#
+            /*Всего л/с, чел.*/
             OfficeEx.Txt = OfficeEx.ExcelGetVal(OfficeEx.ExcelFile1, 0, 0, 20, 2);
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 4, 4, 1, 0);
 
-            /*Всего тех.ед#1#
+            /*Всего тех.ед*/
             OfficeEx.Txt = OfficeEx.ExcelGetVal(OfficeEx.ExcelFile1, 0, 0, 20, 3);
-            OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 4, 4, 2, 0);*/
+            OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 4, 4, 2, 0);
 
 
         }
