@@ -20,7 +20,7 @@ namespace DocToPptC
         
         private static string _txt = "";
 
-        public static string Txt
+     public static string Txt
         {
             get { return _txt; }
             set { _txt = value; }
@@ -34,7 +34,23 @@ namespace DocToPptC
             return word;
         }
 
-        public static string ExcelGetVal(string filepatch, int indexWsp, int indexSheetD, int indexRow, int indexCell)
+        public static int SearchString(string findstring)
+        {
+            string[] strArray = Txt.Split(new[] { ' ', ',', ':', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries);
+            
+//            string findThisString = "JKL";
+            int strNumber;
+            int strIndex = 0;
+            for (strNumber = 0; strNumber < strArray.Length; strNumber++)
+            {
+                strIndex = strArray[strNumber].IndexOf(findstring);
+                if (strIndex >= 0)
+                    break;
+            }
+            return strIndex;
+        }
+
+       public static string ExcelGetVal(string filepatch, int indexWsp, int indexSheetD, int indexRow, int indexCell)
         {
             /*ставим указатель на место вставки в таблице*/
             using (SpreadsheetDocument docExcel = SpreadsheetDocument.Open(filepatch, true))
@@ -52,7 +68,7 @@ namespace DocToPptC
             }
             return Txt;
         }
-
+        
         public static void PptxGetTab(string filepatch, int indexSlide, int indexGraphicFrame, int indexRow, int indexCell, int indexRun)
         /*ставим указатель на место вставки текста в таблицу*/
         {
@@ -97,7 +113,7 @@ namespace DocToPptC
                 ODD.Body body = wordDoc.MainDocumentPart.Document.Body;
                 ODD.Paragraph para = body.ChildElements.OfType<ODD.Paragraph>().ElementAt(indexparagraf);
                 ODD.Run run = para.ChildElements.OfType<ODD.Run>().ElementAt(indexrun);
-                ODD.Text t = run.ChildElements.OfType<ODD.Text>().ElementAt(indextext);
+//                ODD.Text t = run.ChildElements.OfType<ODD.Text>().ElementAt(indextext);
                 if (para.InnerText != "")
                 {
                     Txt = para.InnerText;
