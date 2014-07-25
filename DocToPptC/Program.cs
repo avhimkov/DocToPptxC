@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using P = DocumentFormat.OpenXml.Presentation;
-using ODD = DocumentFormat.OpenXml.Wordprocessing;
-using ODP = DocumentFormat.OpenXml.Drawing;
+//using P = DocumentFormat.OpenXml.Presentation;
+//using ODD = DocumentFormat.OpenXml.Wordprocessing;
+//using ODP = DocumentFormat.OpenXml.Drawing;
 
 
 namespace DocToPptC

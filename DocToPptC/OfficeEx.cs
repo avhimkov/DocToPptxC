@@ -30,16 +30,17 @@ namespace DocToPptC
         {
             /*Разбиваем параграф из DocGetPar на слова с индексом*/
             string[] words = Txt.Split(new[] { ' ', ',', ':', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries);
-            string Word = words[index];
-            return Word;
+            string word = words[index];
+            return word;
         }
-        public static string ExcelGetVal(string filepatch, int indexWSP, int indexSheetD, int indexRow, int indexCell)
+
+        public static string ExcelGetVal(string filepatch, int indexWsp, int indexSheetD, int indexRow, int indexCell)
         {
             /*ставим указатель на место вставки в таблице*/
             using (SpreadsheetDocument docExcel = SpreadsheetDocument.Open(filepatch, true))
             {
                 WorkbookPart workbookPart = docExcel.WorkbookPart;
-                WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(indexWSP);
+                WorksheetPart worksheetPart = workbookPart.WorksheetParts.ElementAt(indexWsp);
                 SheetData sheetData = worksheetPart.Worksheet.ChildElements.OfType<SheetData>().ElementAt(indexSheetD);
                 Row row1 = sheetData.ChildElements.OfType<Row>().ElementAt(indexRow);
                 Cell cell1 = row1.ChildElements.OfType<Cell>().ElementAt(indexCell);
