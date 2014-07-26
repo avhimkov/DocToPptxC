@@ -37,17 +37,7 @@ namespace DocToPptC
         public static int SearchString(string findstring)
         {
             string[] strArray = Txt.Split(new[] { ' ', ',', ':', '?', '!', '.' }, StringSplitOptions.RemoveEmptyEntries);
-            
-//            string findThisString = "JKL";
-            int strNumber;
-            int strIndex = 0;
-            for (strNumber = 0; strNumber < strArray.Length; strNumber++)
-            {
-                strIndex = strArray[strNumber].IndexOf(findstring);
-                if (strIndex >= 0)
-                    break;
-            }
-            return strIndex;
+            return Array.IndexOf(strArray, findstring); 
         }
 
        public static string ExcelGetVal(string filepatch, int indexWsp, int indexSheetD, int indexRow, int indexCell)
