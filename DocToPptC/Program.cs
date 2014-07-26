@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using P = DocumentFormat.OpenXml.Presentation;
-//using ODD = DocumentFormat.OpenXml.Wordprocessing;
-//using ODP = DocumentFormat.OpenXml.Drawing;
-
 
 namespace DocToPptC
 {
@@ -22,25 +18,23 @@ namespace DocToPptC
             /*заголовок*/
             /*по параграфам 2-3 в заголовке*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-
-//            OfficeEx.SearchString("пожаре");
             
             /*первый параграф*/
-            str.Add(OfficeEx.ReadWordIp(17));/*0*/
-            str.Add(OfficeEx.ReadWordIp(18));/*1*/
-            str.Add(OfficeEx.ReadWordIp(20));/*2*/
-            str.Add(OfficeEx.ReadWordIp(21));/*3*/
-            str.Add(OfficeEx.ReadWordIp(22));/*4*/
-            str.Add(OfficeEx.ReadWordIp(23));/*5*/
-
-//            OfficeEx.SearchString("пожаре");
+            int parag1 = OfficeEx.SearchString("пожаре");
+            str.Add(OfficeEx.ReadWordIp(parag1));/*7*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 1));/*8*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 3));/*10*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 4));/*21*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 5));/*22*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 6));/*23*/
+           
             /*второй параграф параграф*/
-            str.Add(OfficeEx.ReadWordIp(27));/*6*/
-            str.Add(OfficeEx.ReadWordIp(28));/*7*/
-            str.Add(OfficeEx.ReadWordIp(29));/*8*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 10));/*6 27*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 11));/*7 28*/
+            str.Add(OfficeEx.ReadWordIp(parag1 + 12));/*8 29*/
 
             /*первый параграф вывод*/
-            OfficeEx.Txt = str[0] + " " + str[1] + " " + str[2] + " " + str[3] + " " + str[4] + " " + str[5];
+            OfficeEx.Txt = str[0].Remove(5) + " " + str[1] + " " + str[2] + " " + str[3] + " " + str[4] + " " + str[5];
             OfficeEx.PptxGetPar(OfficeEx.PptxFile, 0, 0, 1, 0);
 
             /*второй параграф параграф вывод*/
@@ -49,39 +43,44 @@ namespace DocToPptC
 
             /*температура*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
-            OfficeEx.Txt = OfficeEx.ReadWordIp(2);
+            int parag2 = OfficeEx.SearchString("температура");
+            OfficeEx.Txt = OfficeEx.ReadWordIp(parag2 + 1);
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 1, 1, 1, 0);
 
-            /*осадки*/
+            /*осадки TODO*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
             str.Add(OfficeEx.ReadWordIp(8));/*9*/
-            OfficeEx.Txt = str[9];
+//            str.Add(OfficeEx.ReadWordIp(9));/*9*/
+            OfficeEx.Txt = str[9]/*+ " " + str[10]*/;
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 1, 2, 1, 0); 
 
             /*Направление и скорость ветра*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 6, 0, 0);
-            str.Add(OfficeEx.ReadWordIp(5).ToUpper().Remove(1, 5).Remove(3, 7));/*10*/
-            str.Add(OfficeEx.ReadWordIp(6));/*11*/
-            str.Add(OfficeEx.ReadWordIp(7));/*12*/
+            int skorvetr = OfficeEx.SearchString("ветер");
+            str.Add(OfficeEx.ReadWordIp(skorvetr).ToUpper().Remove(1, 5).Remove(3, 7));/*10*/
+            str.Add(OfficeEx.ReadWordIp(skorvetr + 1));/*11*/
+            str.Add(OfficeEx.ReadWordIp(skorvetr + 2));/*12*/
             OfficeEx.Txt = (str[10] + " " + str[11] + " " + str[12]).Remove(9, 2);
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 1, 3, 1, 0);
 
             /*Пострадало*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-            str.Add(OfficeEx.ReadWordIp(53));/*13*/
+            int postrd = OfficeEx.SearchString("погибло");
+            str.Add(OfficeEx.ReadWordIp(postrd + 6));/*13*/
             OfficeEx.Txt = str[13];
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 3, 1, 1, 0);
 
             /*Погибло*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-            str.Add(OfficeEx.ReadWordIp(57));/*14*/
+            int pogib = OfficeEx.SearchString("погибло");
+            str.Add(OfficeEx.ReadWordIp(pogib - 2));/*14*/
             OfficeEx.Txt = str[14];
-            
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 3, 2, 1, 0);
 
             /*Госпитализированно*/
             OfficeEx.Txt = OfficeEx.DocGetPar(OfficeEx.DocxFile, 5, 0, 0);
-            str.Add(OfficeEx.ReadWordIp(57));/*15*/
+            int gospit = OfficeEx.SearchString("погибло");
+            str.Add(OfficeEx.ReadWordIp(gospit + 1));/*15*/
             OfficeEx.Txt = str[15];
             OfficeEx.PptxGetTab(OfficeEx.PptxFile, 0, 3, 3, 1, 0);
             
