@@ -18,14 +18,10 @@ namespace DocToPptC
         public static string ExcelFile1 = @"D:\DocToPPTС\Presentation1.xlsx";
 //        public static string ExcelFile2 = @"Справка  СиС.xlsx";
         
-        private static string _txt = "";
+//        private static string _txt = "";
 
-     public static string Txt
-        {
-            get { return _txt; }
-            set { _txt = value; }
-        }
-
+     public static string Txt { get; set; }
+      
         public static string ReadWordIp(int index)
         {
             /*Разбиваем параграф из DocGetPar на слова с индексом*/
