@@ -13,13 +13,20 @@ namespace DocToPptC
 {
     public class OfficeEx
     {
-        public static string DocxFile = @"D:\DocToPPTС\Doc.docx";
-        public static string PptxFile = @"D:\DocToPPTС\Presentation1.pptx";
-        public static string ExcelFile1 = @"D:\DocToPPTС\Presentation1.xlsx";
+        public static string ExcelF { get; set; }
+        public static string PptxF { get; set; }
+        public static string DocxF { get; set; }
+
+//        public static string DocxFile = DocxF;
+//        public static string PptxFile = PptxF;
+//        public static string ExcelFile1 = ExcelF;
+
+
+//            @"D:\DocToPPTС\12. Анализ ФП и ТП РСЧС приложение 1.xlsx" @"D:\DocToPPTС\6.Картa ЧС.pptx" @"D:\DocToPPTС\Doc.docx"
 //        public static string ExcelFile2 = @"Справка  СиС.xlsx";
         
 //        private static string _txt = "";
-
+        
      public static string Txt { get; set; }
       
         public static string ReadWordIp(int index)
